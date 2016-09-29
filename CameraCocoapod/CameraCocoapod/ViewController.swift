@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     @IBAction func didPressTakePhoto(_ sender: AnyObject) {
         if let videoConnection = stillImageOutput!.connection(withMediaType: AVMediaTypeVideo) {
             videoConnection.videoOrientation = AVCaptureVideoOrientation.portrait
-            stillImageOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: {(sampleBuffer, error) in
+            stillImageOutput?.captureStillImageAsynchronously(from: videoConnection) {
+              (sampleBuffer, error) in
                 if (sampleBuffer != nil) {
                     let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                     let dataProvider = CGDataProvider(data: imageData as! CFData)
@@ -30,7 +31,7 @@ class ViewController: UIViewController {
                     let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
                     self.capturedImage.image = image
                 }
-            })
+            }
         }
     }
     
