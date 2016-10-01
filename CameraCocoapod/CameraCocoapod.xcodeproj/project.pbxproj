@@ -193,7 +193,7 @@
 				TargetAttributes = {
 					0A53822D1D970EE8001BB3DB = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = FUGJDA8ZBG;
+						DevelopmentTeam = A3LLN6N3LJ;
 						ProvisioningStyle = Automatic;
 					};
 					0A5382411D970EE8001BB3DB = {
@@ -413,10 +413,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FUGJDA8ZBG;
+				DEVELOPMENT_TEAM = A3LLN6N3LJ;
 				INFOPLIST_FILE = CameraCocoapod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.ckillion.ABCameraView;
+				PRODUCT_BUNDLE_IDENTIFIER = me.muditmittal216.ABCameraView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -426,10 +426,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FUGJDA8ZBG;
+				DEVELOPMENT_TEAM = A3LLN6N3LJ;
 				INFOPLIST_FILE = CameraCocoapod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.ckillion.ABCameraView;
+				PRODUCT_BUNDLE_IDENTIFIER = me.muditmittal216.ABCameraView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

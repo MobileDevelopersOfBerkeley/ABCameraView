@@ -13,18 +13,28 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var capturedImage: UIImageView!
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var cancel: UIButton!
+    @IBOutlet weak var usePhoto: UIButton!
+    @IBOutlet weak var takePhoto: UIButton!
+    
   
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
     
+    @IBAction func deleteImage(_ sender: AnyObject) {
+        capturedImage.isHidden = true
+        cancel.isHidden = true
+        usePhoto.isHidden = true
+        takePhoto.isHidden = false
+        
+    }
     
     @IBAction func didPressTakePhoto(_ sender: AnyObject) {
         if let videoConnection = stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) {
             videoConnection.videoOrientation = AVCaptureVideoOrientation.portrait
             stillImageOutput?.captureStillImageAsynchronously(from: videoConnection) {
               (sampleBuffer, error) in
-              
               if (sampleBuffer != nil) {
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                 let dataProvider = CGDataProvider(data: imageData as! CFData)
@@ -32,13 +42,20 @@ class ViewController: UIViewController {
                 let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
                     self.capturedImage.image = image
                 }
+                self.capturedImage.isHidden = false
+                self.cancel.isHidden = false
+                self.takePhoto.isHidden = true
+                self.usePhoto.isHidden = false
             }
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        capturedImage.isHidden = true
+        cancel.isHidden = true
+        usePhoto.isHidden = true
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -62,7 +79,7 @@ class ViewController: UIViewController {
             if captureSession!.canAddOutput(stillImageOutput) {
                 captureSession!.addOutput(stillImageOutput)
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                previewLayer!.videoGravity = AVLayerVideoGravityResize
+                previewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
                 previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
                 previewView.layer.addSublayer(previewLayer!)
                 captureSession!.startRunning()
@@ -76,7 +93,6 @@ class ViewController: UIViewController {
         print(previewView.bounds)
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

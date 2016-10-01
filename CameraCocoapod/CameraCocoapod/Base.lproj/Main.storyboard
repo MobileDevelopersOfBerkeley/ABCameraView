@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -15,14 +15,14 @@
                         <viewControllerLayoutGuide type="top" id="czi-6D-luJ"/>
                         <viewControllerLayoutGuide type="bottom" id="rwn-Ni-ffV"/>
                     </layoutGuides>
-                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="pQ2-0u-CHv">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleAspectFill" id="pQ2-0u-CHv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KkN-jz-bH8"/>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4Q-9h-sXZ" userLabel="Preview View">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4Q-9h-sXZ" userLabel="Preview View">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KkN-jz-bH8"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-m1-DAe">
                                 <color key="backgroundColor" red="0.371856398643585" green="0.72090231825334183" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -35,6 +35,22 @@
                                     <action selector="didPressTakePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hij-y2-dUR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdJ-96-QU0">
+                                <frame key="frameInset" minX="152" minY="519" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Use Photo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J07-NC-Lqq">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="39J-Ks-5cn"/>
+                                    <constraint firstAttribute="width" constant="40" id="FHl-kO-rsc"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Delete Filled-50"/>
+                                <connections>
+                                    <action selector="deleteImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K2e-ov-I2s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -45,14 +61,19 @@
                             <constraint firstAttribute="topMargin" secondItem="W4Q-9h-sXZ" secondAttribute="top" id="OVV-gA-9X0"/>
                             <constraint firstItem="KkN-jz-bH8" firstAttribute="trailing" secondItem="pQ2-0u-CHv" secondAttribute="trailing" id="XHa-Rv-TZY"/>
                             <constraint firstAttribute="bottomMargin" secondItem="W4Q-9h-sXZ" secondAttribute="bottom" id="Yo2-or-mbv"/>
+                            <constraint firstItem="J07-NC-Lqq" firstAttribute="leading" secondItem="KkN-jz-bH8" secondAttribute="leading" constant="20" id="ZR6-at-hpe"/>
                             <constraint firstAttribute="trailing" secondItem="W4Q-9h-sXZ" secondAttribute="trailing" id="apJ-6a-lKP"/>
-                            <constraint firstItem="KkN-jz-bH8" firstAttribute="top" secondItem="pQ2-0u-CHv" secondAttribute="topMargin" constant="20" id="cPe-jh-5TH"/>
+                            <constraint firstItem="KkN-jz-bH8" firstAttribute="top" secondItem="pQ2-0u-CHv" secondAttribute="topMargin" id="cPe-jh-5TH"/>
                             <constraint firstAttribute="bottomMargin" secondItem="KkN-jz-bH8" secondAttribute="bottom" id="gg5-4h-zDq"/>
+                            <constraint firstItem="J07-NC-Lqq" firstAttribute="top" secondItem="KkN-jz-bH8" secondAttribute="top" constant="30" id="yAl-xJ-UxS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancel" destination="J07-NC-Lqq" id="Kzw-Dz-JMT"/>
                         <outlet property="capturedImage" destination="KkN-jz-bH8" id="OHd-lA-vHC"/>
                         <outlet property="previewView" destination="W4Q-9h-sXZ" id="58q-qG-AXn"/>
+                        <outlet property="takePhoto" destination="WSw-m1-DAe" id="wxy-Lo-luF"/>
+                        <outlet property="usePhoto" destination="pdJ-96-QU0" id="D4i-25-OGg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -60,4 +81,7 @@
             <point key="canvasLocation" x="24.800000000000001" y="34.632683658170919"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Delete Filled-50" width="25" height="25"/>
+    </resources>
 </document>
