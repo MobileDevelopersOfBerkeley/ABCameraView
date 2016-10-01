@@ -23,39 +23,41 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KkN-jz-bH8"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-m1-DAe">
-                                <color key="backgroundColor" red="0.371856398643585" green="0.72090231825334183" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-m1-DAe">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="O0v-EG-vrb"/>
+                                    <constraint firstAttribute="width" constant="65" id="O0v-EG-vrb"/>
+                                    <constraint firstAttribute="height" constant="65" id="xah-qU-o0Y"/>
                                 </constraints>
-                                <state key="normal" title="Take Photo">
+                                <state key="normal" image="take-photo-button">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressTakePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hij-y2-dUR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdJ-96-QU0">
-                                <frame key="frameInset" minX="152" minY="519" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Use Photo"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J07-NC-Lqq">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="39J-Ks-5cn"/>
-                                    <constraint firstAttribute="width" constant="40" id="FHl-kO-rsc"/>
+                                    <constraint firstAttribute="height" constant="25" id="39J-Ks-5cn"/>
+                                    <constraint firstAttribute="width" constant="25" id="FHl-kO-rsc"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="Delete Filled-50"/>
+                                <state key="normal" image="cancel-button"/>
                                 <connections>
                                     <action selector="deleteImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K2e-ov-I2s"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdJ-96-QU0">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="A5Y-bt-67O"/>
+                                    <constraint firstAttribute="width" constant="43" id="Rd4-ya-hNp"/>
+                                </constraints>
+                                <state key="normal" image="use-photo-button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="W4Q-9h-sXZ" firstAttribute="leading" secondItem="pQ2-0u-CHv" secondAttribute="leading" id="EOh-wF-iwo"/>
-                            <constraint firstItem="rwn-Ni-ffV" firstAttribute="top" secondItem="WSw-m1-DAe" secondAttribute="bottom" constant="60" id="HWY-TO-hDk"/>
+                            <constraint firstItem="rwn-Ni-ffV" firstAttribute="top" secondItem="WSw-m1-DAe" secondAttribute="bottom" constant="40" id="HWY-TO-hDk"/>
                             <constraint firstItem="WSw-m1-DAe" firstAttribute="centerX" secondItem="pQ2-0u-CHv" secondAttribute="centerX" id="LDK-zz-G1i"/>
                             <constraint firstItem="KkN-jz-bH8" firstAttribute="leading" secondItem="pQ2-0u-CHv" secondAttribute="leading" id="LcR-Zd-xvD"/>
                             <constraint firstAttribute="topMargin" secondItem="W4Q-9h-sXZ" secondAttribute="top" id="OVV-gA-9X0"/>
@@ -63,7 +65,9 @@
                             <constraint firstAttribute="bottomMargin" secondItem="W4Q-9h-sXZ" secondAttribute="bottom" id="Yo2-or-mbv"/>
                             <constraint firstItem="J07-NC-Lqq" firstAttribute="leading" secondItem="KkN-jz-bH8" secondAttribute="leading" constant="20" id="ZR6-at-hpe"/>
                             <constraint firstAttribute="trailing" secondItem="W4Q-9h-sXZ" secondAttribute="trailing" id="apJ-6a-lKP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pdJ-96-QU0" secondAttribute="trailing" constant="21" id="bRl-AK-7ZD"/>
                             <constraint firstItem="KkN-jz-bH8" firstAttribute="top" secondItem="pQ2-0u-CHv" secondAttribute="topMargin" id="cPe-jh-5TH"/>
+                            <constraint firstItem="rwn-Ni-ffV" firstAttribute="top" secondItem="pdJ-96-QU0" secondAttribute="bottom" constant="40" id="gIl-9s-dUN"/>
                             <constraint firstAttribute="bottomMargin" secondItem="KkN-jz-bH8" secondAttribute="bottom" id="gg5-4h-zDq"/>
                             <constraint firstItem="J07-NC-Lqq" firstAttribute="top" secondItem="KkN-jz-bH8" secondAttribute="top" constant="30" id="yAl-xJ-UxS"/>
                         </constraints>
@@ -82,6 +86,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Delete Filled-50" width="25" height="25"/>
+        <image name="cancel-button" width="96" height="96"/>
+        <image name="take-photo-button" width="101" height="100"/>
+        <image name="use-photo-button" width="92" height="91"/>
     </resources>
 </document>
