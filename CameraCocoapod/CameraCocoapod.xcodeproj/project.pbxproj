@@ -193,7 +193,7 @@
 				TargetAttributes = {
 					0A53822D1D970EE8001BB3DB = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = A3LLN6N3LJ;
+						DevelopmentTeam = FUGJDA8ZBG;
 						ProvisioningStyle = Automatic;
 					};
 					0A5382411D970EE8001BB3DB = {
@@ -413,10 +413,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A3LLN6N3LJ;
+				DEVELOPMENT_TEAM = FUGJDA8ZBG;
 				INFOPLIST_FILE = CameraCocoapod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.mobiledevsberkeley.CameraCocoapod;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ckillion.ABCameraView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -426,10 +426,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A3LLN6N3LJ;
+				DEVELOPMENT_TEAM = FUGJDA8ZBG;
 				INFOPLIST_FILE = CameraCocoapod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.mobiledevsberkeley.CameraCocoapod;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ckillion.ABCameraView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -508,6 +508,7 @@
 				0A5382581D970EE8001BB3DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A5382591D970EE8001BB3DB /* Build configuration list for PBXNativeTarget "CameraCocoapodTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +517,7 @@
 				0A53825B1D970EE8001BB3DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A53825C1D970EE8001BB3DB /* Build configuration list for PBXNativeTarget "CameraCocoapodUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +526,7 @@
 				0A53825E1D970EE8001BB3DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

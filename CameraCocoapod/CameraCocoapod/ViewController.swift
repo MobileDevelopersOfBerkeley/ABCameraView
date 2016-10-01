@@ -12,23 +12,24 @@ import AVFoundation
 class ViewController: UIViewController {
 
     @IBOutlet weak var capturedImage: UIImageView!
-    @IBOutlet var previewView: UIView!
-    
+    @IBOutlet weak var previewView: UIView!
+  
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
     
     
     @IBAction func didPressTakePhoto(_ sender: AnyObject) {
-        if let videoConnection = stillImageOutput!.connection(withMediaType: AVMediaTypeVideo) {
+        if let videoConnection = stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) {
             videoConnection.videoOrientation = AVCaptureVideoOrientation.portrait
             stillImageOutput?.captureStillImageAsynchronously(from: videoConnection) {
               (sampleBuffer, error) in
-                if (sampleBuffer != nil) {
-                    let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
-                    let dataProvider = CGDataProvider(data: imageData as! CFData)
-                    let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
-                    let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
+              
+              if (sampleBuffer != nil) {
+                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
+                let dataProvider = CGDataProvider(data: imageData as! CFData)
+                let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
+                let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
                     self.capturedImage.image = image
                 }
             }
@@ -61,7 +62,7 @@ class ViewController: UIViewController {
             if captureSession!.canAddOutput(stillImageOutput) {
                 captureSession!.addOutput(stillImageOutput)
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
+                previewLayer!.videoGravity = AVLayerVideoGravityResize
                 previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
                 previewView.layer.addSublayer(previewLayer!)
                 captureSession!.startRunning()
@@ -72,6 +73,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         previewLayer!.frame = previewView.bounds
+        print(previewView.bounds)
     }
     
 
