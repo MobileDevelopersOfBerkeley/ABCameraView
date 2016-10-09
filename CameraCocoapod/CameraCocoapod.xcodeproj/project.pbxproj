@@ -14,6 +14,7 @@
 		0A53823C1D970EE8001BB3DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A53823A1D970EE8001BB3DB /* LaunchScreen.storyboard */; };
 		0A5382471D970EE8001BB3DB /* CameraCocoapodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5382461D970EE8001BB3DB /* CameraCocoapodTests.swift */; };
 		0A5382521D970EE8001BB3DB /* CameraCocoapodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5382511D970EE8001BB3DB /* CameraCocoapodUITests.swift */; };
+		0AA4823B1DAA1896002633B0 /* ABButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4823A1DAA1896002633B0 /* ABButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		0A53824D1D970EE8001BB3DB /* CameraCocoapodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraCocoapodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5382511D970EE8001BB3DB /* CameraCocoapodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCocoapodUITests.swift; sourceTree = "<group>"; };
 		0A5382531D970EE8001BB3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AA4823A1DAA1896002633B0 /* ABButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		0A5382251D970EE8001BB3DB = {
 			isa = PBXGroup;
 			children = (
+				0AA4823A1DAA1896002633B0 /* ABButton.swift */,
 				0A5382301D970EE8001BB3DB /* CameraCocoapod */,
 				0A5382451D970EE8001BB3DB /* CameraCocoapodTests */,
 				0A5382501D970EE8001BB3DB /* CameraCocoapodUITests */,
@@ -193,7 +196,7 @@
 				TargetAttributes = {
 					0A53822D1D970EE8001BB3DB = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = WAS7569CL5;
+						DevelopmentTeam = A3LLN6N3LJ;
 						ProvisioningStyle = Automatic;
 					};
 					0A5382411D970EE8001BB3DB = {
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A5382341D970EE8001BB3DB /* ViewController.swift in Sources */,
+				0AA4823B1DAA1896002633B0 /* ABButton.swift in Sources */,
 				0A5382321D970EE8001BB3DB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,10 +417,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WAS7569CL5;
+				DEVELOPMENT_TEAM = A3LLN6N3LJ;
 				INFOPLIST_FILE = CameraCocoapod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.christinemunar.ABCameraView;
+				PRODUCT_BUNDLE_IDENTIFIER = me.muditmittal216.ABCameraView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -426,10 +430,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WAS7569CL5;
+				DEVELOPMENT_TEAM = A3LLN6N3LJ;
 				INFOPLIST_FILE = CameraCocoapod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.christinemunar.ABCameraView;
+				PRODUCT_BUNDLE_IDENTIFIER = me.muditmittal216.ABCameraView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -17,7 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var usePhoto: UIButton!
     @IBOutlet weak var takePhoto: UIButton!
     
-  
+    var buttons: [UIButton?] = []
+    var topLeftButton: UIButton?
+    var topMiddleButton: UIButton?
+    var topRightButton: UIButton?
+    var leftMiddleButton: UIButton?
+    var rightMiddleButton: UIButton?
+    var bottomLeftButton: UIButton?
+    var bottomRightButton: UIButton?
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
@@ -27,6 +34,9 @@ class ViewController: UIViewController {
         cancel.isHidden = true
         usePhoto.isHidden = true
         takePhoto.isHidden = false
+        for button in self.buttons {
+            button?.isHidden = false
+        }
         
     }
     
@@ -46,6 +56,9 @@ class ViewController: UIViewController {
                 self.cancel.isHidden = false
                 self.takePhoto.isHidden = true
                 self.usePhoto.isHidden = false
+                for button in self.buttons {
+                    button?.isHidden = true
+                }
             }
         }
     }
@@ -111,51 +124,82 @@ class ViewController: UIViewController {
     }
     
     enum Position {
-        case topLeft(String)
-        case topMiddle(String)
-        case topRight(String)
-        case middleLeft(String)
-        case middleRight(String)
-        case bottomLeft(String)
-        case bottomRight(String)
+        case topLeft
+        case topMiddle
+        case topRight
+        case middleLeft
+        case middleRight
+        case bottomLeft
+        case bottomRight
     }
     
     
-    public func addButton(_ position: Position) {
+    public func  addButton(_ position: Position, imageName: String) -> UIButton {
         
         switch position {
-        case .topLeft(let imageName):
-            topLeftButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+        case .topLeft:
+            let topLeftButton = UIButton(frame: CGRect(x: Int(capturedImage.bounds.minX + 20), y: Int(capturedImage.bounds.minY + 30), width: 26, height: 26))
+            topLeftButton.setImage(UIImage(named: imageName), for: UIControlState.normal)
+            self.view.addSubview(topLeftButton)
+            buttons.append(topLeftButton)
+            return topLeftButton
             
-        case .topMiddle(let imageName):
-            topMiddleButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+        case .topMiddle:
+            let topMiddleButton = UIButton(frame: CGRect(x: Int((capturedImage.frame.size.width / 2) - 13), y: Int(capturedImage.bounds.minY + 30), width: 26, height: 26))
+            topMiddleButton.setImage(UIImage(named: imageName), for: UIControlState.normal)
+            self.view.addSubview(topMiddleButton)
+            buttons.append(topMiddleButton)
+            return topMiddleButton
+
+        case .topRight:
+            let topRightButton = UIButton(frame: CGRect(x: Int(capturedImage.bounds.maxX - 46) , y: Int(capturedImage.bounds.minY + 30), width: 26, height: 26))
+            topRightButton.setImage(UIImage(named: imageName), for: UIControlState.normal)
+            self.view.addSubview(topRightButton)
+            buttons.append(topRightButton)
+            return topRightButton
             
-        case .topRight(let imageName):
-            topRightButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+        case .middleLeft:
+            let middleLeftButton = UIButton(frame: CGRect(x: Int(capturedImage.bounds.minX + 20), y: Int((capturedImage.frame.size.height / 2) - 13) , width: 26, height: 26))
+            middleLeftButton.setImage(UIImage(named: imageName), for: UIControlState.normal)
+            self.view.addSubview(middleLeftButton)
+            buttons.append(middleLeftButton)
+            return middleLeftButton
             
-        case .middleLeft(let imageName):
-            middleLeftButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+        case .middleRight:
+            let middleRightButton = UIButton(frame: CGRect(x: Int(capturedImage.bounds.maxX - 46), y: Int((capturedImage.frame.size.height / 2) - 13) , width: 26, height: 26))
+            middleRightButton.setImage(UIImage(named: imageName), for: UIControlState.normal)
+            self.view.addSubview(middleRightButton)
+            buttons.append(middleRightButton)
+            return middleRightButton
             
-        case .middleRight(let imageName):
-            middleRightButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+        case .bottomLeft:
+            let bottomLeftButton = UIButton(frame: CGRect(x: Int(capturedImage.bounds.minX + 20), y: Int(capturedImage.bounds.maxY - 56) , width: 26, height: 26))
+            bottomLeftButton.setImage(UIImage(named: imageName), for: UIControlState.normal)
+            self.view.addSubview(bottomLeftButton)
+            buttons.append(bottomLeftButton)
+            return bottomLeftButton
             
-        case .bottomLeft(let imageName):
-            bottomLeftButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
-            
-        case .bottomRight(let imageName):
-            bottomRightButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+        case .bottomRight:
+            let bottomRightButton = UIButton(frame: CGRect(x: Int(capturedImage.bounds.maxX - 46), y: Int(capturedImage.bounds.maxY - 56) , width: 26, height: 26))
+            bottomRightButton.setImage(UIImage(named: imageName), for: UIControlState.normal)
+            self.view.addSubview(bottomRightButton)
+            buttons.append(bottomRightButton)
+            return bottomRightButton
         }
         
     }
-    
-//    let newImage = Position.topLeft("newimage")
-//    addButton(newImage)
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         previewLayer!.frame = previewView.bounds
         print(previewView.bounds)
+        topMiddleButton = addButton(Position.topMiddle, imageName: "cancel-button")
+        topRightButton = addButton(Position.topRight, imageName: "cancel-button")
+        topLeftButton = addButton(Position.topLeft, imageName: "cancel-button")
+        leftMiddleButton = addButton(Position.middleLeft, imageName: "cancel-button")
+        rightMiddleButton = addButton(Position.middleRight, imageName: "cancel-button")
+        bottomLeftButton = addButton(Position.bottomLeft, imageName: "cancel-button")
+        bottomRightButton = addButton(Position.bottomRight, imageName: "cancel-button")
     }
     
     override func didReceiveMemoryWarning() {
