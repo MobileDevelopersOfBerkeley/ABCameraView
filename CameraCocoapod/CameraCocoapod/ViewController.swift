@@ -110,24 +110,46 @@ class ViewController: UIViewController {
         }
     }
     
-    func pinch(pinch: UIPinchGestureRecognizer) {
-        var device: AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        var vZoomFactor = pinch.scale
-        var error:NSError!
-        do{
-            try device.lockForConfiguration()
-            defer {device.unlockForConfiguration()}
-            if (vZoomFactor <= device.activeFormat.videoMaxZoomFactor){
-                device.videoZoomFactor = vZoomFactor
-            }else{
-                NSLog("Unable to set videoZoom: (max %f, asked %f)", device.activeFormat.videoMaxZoomFactor, vZoomFactor);
-            }
-        }catch error as NSError{
-            NSLog("Unable to set videoZoom: %@", error.localizedDescription);
-        }catch _{
-            
-        }
+    enum Position {
+        case topLeft(String)
+        case topMiddle(String)
+        case topRight(String)
+        case middleLeft(String)
+        case middleRight(String)
+        case bottomLeft(String)
+        case bottomRight(String)
     }
+    
+    
+    public func addButton(_ position: Position) {
+        
+        switch position {
+        case .topLeft(let imageName):
+            topLeftButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+            
+        case .topMiddle(let imageName):
+            topMiddleButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+            
+        case .topRight(let imageName):
+            topRightButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+            
+        case .middleLeft(let imageName):
+            middleLeftButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+            
+        case .middleRight(let imageName):
+            middleRightButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+            
+        case .bottomLeft(let imageName):
+            bottomLeftButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+            
+        case .bottomRight(let imageName):
+            bottomRightButton.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+        }
+        
+    }
+    
+//    let newImage = Position.topLeft("newimage")
+//    addButton(newImage)
     
     
     override func viewDidAppear(_ animated: Bool) {
