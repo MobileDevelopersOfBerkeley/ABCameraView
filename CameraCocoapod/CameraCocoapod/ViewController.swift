@@ -87,6 +87,49 @@ class ViewController: UIViewController {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let screenSize = previewView.bounds.size
+        if let touchPoint = touches.first {
+            let x = touchPoint.location(in: previewView).y / screenSize.height
+            let y = 1.0 - touchPoint.location(in: previewView).x / screenSize.width
+            let focusPoint = CGPoint(x: x, y: y)
+            
+            if let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) {
+                do {
+                    try device.lockForConfiguration()
+                    
+                    device.focusPointOfInterest = focusPoint
+                    device.focusMode = .autoFocus
+                    device.exposurePointOfInterest = focusPoint
+                    device.exposureMode = AVCaptureExposureMode.continuousAutoExposure
+                    device.unlockForConfiguration()
+                }
+                catch {
+                }
+            }
+        }
+    }
+    
+    func pinch(pinch: UIPinchGestureRecognizer) {
+        var device: AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        var vZoomFactor = pinch.scale
+        var error:NSError!
+        do{
+            try device.lockForConfiguration()
+            defer {device.unlockForConfiguration()}
+            if (vZoomFactor <= device.activeFormat.videoMaxZoomFactor){
+                device.videoZoomFactor = vZoomFactor
+            }else{
+                NSLog("Unable to set videoZoom: (max %f, asked %f)", device.activeFormat.videoMaxZoomFactor, vZoomFactor);
+            }
+        }catch error as NSError{
+            NSLog("Unable to set videoZoom: %@", error.localizedDescription);
+        }catch _{
+            
+        }
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         previewLayer!.frame = previewView.bounds
