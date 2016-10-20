@@ -44,11 +44,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didPressTakePhoto(_ sender: AnyObject) {
-        if flash {
-            toggleFlash()
-            sleep(1)
-            toggleFlash()
-        }
+        toggleFlash()
+        sleep(1)
+        toggleFlash()
         if let videoConnection = stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) {
             videoConnection.videoOrientation = AVCaptureVideoOrientation.portrait
             stillImageOutput?.captureStillImageAsynchronously(from: videoConnection) {
@@ -139,11 +137,13 @@ class ViewController: UIViewController {
             if (device?.hasTorch)! {
                 do {
                     try device?.lockForConfiguration()
-                    device?.flashMode = .on
+                    if (flash == true) {
+                        device?.flashMode = .on
+                    } else {
+                        device?.flashMode = .off
+                    }
                     if (device?.torchMode == AVCaptureTorchMode.on) {
                         device?.torchMode = AVCaptureTorchMode.off
-                    } else {
-                        try device?.setTorchModeOnWithLevel(1.0)
                     }
                     device?.unlockForConfiguration()
                 } catch {
@@ -284,14 +284,6 @@ class ViewController: UIViewController {
         topRightButton = addButton(Position.topRight, imageName: "switch-camera-button")
         topRightButton?.addTarget(self, action: #selector(changeCamera), for: UIControlEvents.touchUpInside)
         
-        
-        /*topRightButton = addButton(Position.topRight, imageName: "cancel-button")
-        topLeftButton = addButton(Position.topLeft, imageName: "cancel-button")
-         
-        leftMiddleButton = addButton(Position.middleLeft, imageName: "cancel-button")
-        rightMiddleButton = addButton(Position.middleRight, imageName: "cancel-button")
-        bottomLeftButton = addButton(Position.bottomLeft, imageName: "cancel-button")
-        bottomRightButton = addButton(Position.bottomRight, imageName: "cancel-button")*/
     }
     
     override func didReceiveMemoryWarning() {
