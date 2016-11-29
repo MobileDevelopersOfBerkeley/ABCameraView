@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ABCameraViewController.swift
 //  CameraCocoapod
 //
 //  Created by Mudit Mittal on 9/24/16.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ABCameraViewController: UIViewController {
 
     @IBOutlet weak var capturedImage: UIImageView!
     @IBOutlet weak var previewView: UIView!
