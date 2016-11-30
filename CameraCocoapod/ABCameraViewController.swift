@@ -272,18 +272,12 @@ class ABCameraViewController: UIViewController {
         //topMiddleButton = addButton(Position.topMiddle, imageName: "cancel-button")
         
         // If user wants to add a Flash Button:
-        //topRightButton = addButton(Position.topRight, imageName: "flash-button")
-        // topRightButton.addTarget(self, action: "flashToggle:", for: UIControlEvents.touchUpInside)
+        // topLeftButton = addButton(Position.topLeft, imageName: "flash-off-button")
+        // topLeftButton?.addTarget(self, action: #selector(turnFlashOn), for: UIControlEvents.touchUpInside)
         
         // If user wants to add a Switch Camera Button:
-        //bottomRightButton = addButton(Position.topRight, imageName: "flash-button")
-        // bottomRightButton.addTarget(self, action: "switchCamera:", for: UIControlEvents.touchUpInside)
-        
-        topLeftButton = addButton(Position.topLeft, imageName: "flash-off-button")
-        topLeftButton?.addTarget(self, action: #selector(turnFlashOn), for: UIControlEvents.touchUpInside)
-        topRightButton = addButton(Position.topRight, imageName: "switch-camera-button")
-        topRightButton?.addTarget(self, action: #selector(changeCamera), for: UIControlEvents.touchUpInside)
-        
+        // topRightButton = addButton(Position.topRight, imageName: "switch-camera-button")
+        // topRightButton?.addTarget(self, action: #selector(changeCamera), for: UIControlEvents.touchUpInside)
     }
     
     override func didReceiveMemoryWarning() {
