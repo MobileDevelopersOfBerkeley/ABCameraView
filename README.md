@@ -1,9 +1,9 @@
 # ABCameraView
 Implementing this camera is as easy as ABC.
 
-This is a fullscreen camera view controller that allows you to customize what buttons you want to include and the location of them.
+This is a full-screen camera view controller that allows you to customize what buttons you want to include and the location of each of them.
 
-Included are functions for flash functionality, switching the camera between front and back, and focusing the camera. Alongside these are default button images for Flash and Switch Camera.
+Included are functions for flash, switching the camera between front and back, and focusing the camera. Alongside these are default button images for Flash and Switch Camera.
 
 However, you also have the option of adding your own custom button images if desired, as well as your own buttons with custom functions. 
 
