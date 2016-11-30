@@ -16,8 +16,6 @@ Install ABCameraView with: [CocoaPods](http://cocoapods.org)
 ### Podfile
 
 ```ruby
-use_frameworks!
-
 pod 'ABCameraView'
 ```
 
