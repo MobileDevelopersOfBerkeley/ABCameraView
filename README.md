@@ -1,4 +1,10 @@
 # ABCameraView
+
+[![CI Status](http://img.shields.io/travis/Christine Munar/ABCameraView.svg?style=flat)](https://travis-ci.org/Christine Munar/ABCameraView)
+[![Version](https://img.shields.io/cocoapods/v/ABCameraView.svg?style=flat)](http://cocoapods.org/pods/ABCameraView)
+[![License](https://img.shields.io/cocoapods/l/ABCameraView.svg?style=flat)](http://cocoapods.org/pods/ABCameraView)
+[![Platform](https://img.shields.io/cocoapods/p/ABCameraView.svg?style=flat)](http://cocoapods.org/pods/ABCameraView)
+
 Implementing this camera is as easy as ABC.
 
 This is a fullscreen camera view controller that allows you to customize what buttons you want to include and the location of them.
@@ -9,15 +15,15 @@ However, you also have the option of adding your own custom button images if des
 
 This dependency skips the hassle of AVFoundation, and allows you to implement capturing a photo in a clean and simple way! 
 
-## Installation with CocoaPods
+## Installation
 
-Install ABCameraView with: [CocoaPods](http://cocoapods.org)
-
-### Podfile
+ABCameraView is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ABCameraView'
+pod "ABCameraView"
 ```
+
 
 ## How to use
 To use it you just add a ViewController of class ABCameraViewController to your storyboard to use.
@@ -57,3 +63,7 @@ The captured image view is in the 'capturedImage' variable.
 
 Supports iOS 8 and above. Xcode 7.0 is required to build the latest code written in Swift 3.0.
 
+
+## License
+
+ABCameraView is available under the MIT license. See the LICENSE file for more info.

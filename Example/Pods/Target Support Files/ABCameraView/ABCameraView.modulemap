@@ -1,0 +1,6 @@
+framework module ABCameraView {
+  umbrella header "ABCameraView-umbrella.h"
+
+  export *
+  module * { export * }
+}

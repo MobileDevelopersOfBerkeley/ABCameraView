@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ABCameraView_Example' do
+  pod 'ABCameraView', :path => '../'
+
+  target 'ABCameraView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

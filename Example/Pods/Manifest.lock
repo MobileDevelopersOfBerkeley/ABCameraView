@@ -1,0 +1,16 @@
+PODS:
+  - ABCameraView (0.1.0)
+
+DEPENDENCIES:
+  - ABCameraView (from `../`)
+
+EXTERNAL SOURCES:
+  ABCameraView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ABCameraView: 2d6f54298276e051f292d6bb86cac59d45d6fd31
+
+PODFILE CHECKSUM: de631ea9b18061e7562f7d5b6f370be7b20e3059
+
+COCOAPODS: 1.1.1
