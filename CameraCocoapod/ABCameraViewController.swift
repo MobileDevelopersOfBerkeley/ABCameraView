@@ -40,8 +40,8 @@ class ABCameraViewController: UIViewController {
         for button in self.buttons {
             button?.isHidden = false
         }
-        
     }
+    
     
     @IBAction func didPressTakePhoto(_ sender: AnyObject) {
         toggleFlash()
@@ -74,11 +74,19 @@ class ABCameraViewController: UIViewController {
         }
     }
     
+    /**
+     * changeCamera: function associated with switch camera button
+     */
+    
     func changeCamera(sender: AnyObject?) {
         camera = !camera
         reloadCamera()
         previewLayer!.frame = previewView.bounds
     }
+    
+    /**
+     * reloadCamera: resets the camera session
+     */
     
     func reloadCamera() {
         captureSession?.stopRunning()
@@ -121,6 +129,13 @@ class ABCameraViewController: UIViewController {
         }
     }
     
+    
+    /**
+     * turnFlashOn: function associated with flash button
+     *
+     * @params sender (UIButton)
+     */
+    
     func turnFlashOn(sender: UIButton) {
         flash = !flash
         if (flash == true) {
@@ -130,6 +145,10 @@ class ABCameraViewController: UIViewController {
         }
        
     }
+    
+    /**
+     * toggleFlash: toggles flash between on and off
+     */
     
     func toggleFlash() {
         if (camera == true) {
@@ -154,18 +173,9 @@ class ABCameraViewController: UIViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        capturedImage.isHidden = true
-        cancel.isHidden = true
-        usePhoto.isHidden = true
-        reloadCamera()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+    /**
+     * touchesBegan: sets focus on camera device
+     */
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let screenSize = previewView.bounds.size
@@ -191,6 +201,11 @@ class ABCameraViewController: UIViewController {
         }
     }
     
+    
+    /**
+     * @enum Position of all locations user can add custom button
+     */
+    
     enum Position {
         case topLeft
         case topMiddle
@@ -201,6 +216,11 @@ class ABCameraViewController: UIViewController {
         case bottomRight
     }
     
+    /**
+     * addButton: adds a new button to the camera view controller
+     *
+     * @params _position (Position enum), imageName (String of image)
+     */
     
     public func  addButton(_ position: Position, imageName: String) -> UIButton {
         
@@ -262,6 +282,20 @@ class ABCameraViewController: UIViewController {
             return bottomRightButton
         }
         
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        capturedImage.isHidden = true
+        cancel.isHidden = true
+        usePhoto.isHidden = true
+        reloadCamera()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
