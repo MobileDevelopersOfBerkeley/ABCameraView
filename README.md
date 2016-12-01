@@ -11,6 +11,8 @@ This dependency skips the hassle of AVFoundation, and allows you to implement ca
 
 ## Installation with CocoaPods
 
+Makre sure you're on the correct repo branch: 'ABCameraViewCocoaPod' 
+
 Install ABCameraView with: [CocoaPods](http://cocoapods.org)
 
 ### Podfile
